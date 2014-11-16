@@ -63,6 +63,8 @@ protected:
 
 	int main(const std::vector<std::string>& args)
 	{
+		logger().information("Library app start");
+
 		if (_helpRequested)
 		{
 			displayHelp();
