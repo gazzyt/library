@@ -1,3 +1,4 @@
+#include "Poco/StreamCopier.h"
 #include "Poco/Net/HTTPClientSession.h"
 #include "Poco/Net/HTTPRequest.h"
 #include "Poco/Net/HTTPResponse.h"
@@ -7,6 +8,7 @@
 #include "Poco/Util/HelpFormatter.h"
 #include <iostream>
 
+using Poco::StreamCopier;
 using Poco::Net::HTTPClientSession;
 using Poco::Net::HTTPRequest;
 using Poco::Net::HTTPResponse;
@@ -80,6 +82,8 @@ protected:
 		int statusCode = response.getStatus();
 
 		poco_information_f1(logger(), "Status %d", statusCode);
+
+		StreamCopier::copyStream(rs, std::cout);
 	}
 
 	int main(const std::vector<std::string>& args)
