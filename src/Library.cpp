@@ -1,9 +1,16 @@
+#include "Poco/Net/HTTPClientSession.h"
+#include "Poco/Net/HTTPRequest.h"
+#include "Poco/Net/HTTPResponse.h"
 #include "Poco/Util/Application.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/Option.h"
 #include "Poco/Util/HelpFormatter.h"
 #include <iostream>
 
+using Poco::Net::HTTPClientSession;
+using Poco::Net::HTTPRequest;
+using Poco::Net::HTTPResponse;
+using Poco::Net::HTTPMessage;
 using Poco::Util::Application;
 using Poco::Util::OptionSet;
 using Poco::Util::Option;
@@ -61,6 +68,20 @@ protected:
 		helpformatter.format(std::cout);
 	}
 
+	void getPage()
+	{
+		HTTPClientSession session("www.microsoft.com");
+		HTTPRequest request(HTTPRequest::HTTP_GET, "/", HTTPMessage::HTTP_1_1);
+		HTTPResponse response;
+
+		session.sendRequest(request);
+		std::istream& rs = session.receiveResponse(response);
+
+		int statusCode = response.getStatus();
+
+		poco_information_f1(logger(), "Status %d", statusCode);
+	}
+
 	int main(const std::vector<std::string>& args)
 	{
 		logger().information("Library app start");
@@ -68,6 +89,10 @@ protected:
 		if (_helpRequested)
 		{
 			displayHelp();
+		}
+		else
+		{
+			getPage();
 		}
 
 		return Application::EXIT_OK;

@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>.\include;..\poco-1.4.7\util\include;..\poco-1.4.7\foundation\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include;..\poco-1.4.7\util\include;..\poco-1.4.7\foundation\include;..\poco-1.4.7\net\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>POCO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
