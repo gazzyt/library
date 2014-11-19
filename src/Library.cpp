@@ -87,7 +87,7 @@ protected:
 
 		std::vector<HTTPCookie> cookies;
 		response.getCookies(cookies);
-		for each (HTTPCookie cookie in cookies)
+		for (HTTPCookie cookie : cookies)
 		{
 			poco_information_f1(logger(), "Cookie %s", cookie.toString());
 		}
