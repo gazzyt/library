@@ -92,7 +92,7 @@ protected:
 			poco_information_f1(logger(), "Cookie %s", cookie.toString());
 		}
 
-		StreamCopier::copyStream(rs, std::cout);
+		//StreamCopier::copyStream(rs, std::cout);
 	}
 
 	int main(const std::vector<std::string>& args)
