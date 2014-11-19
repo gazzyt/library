@@ -6,8 +6,9 @@
 # Makefile for Poco HTTPTimeServer
 #
 
-include $(POCO_BASE)/build/rules/global
 
+include $(POCO_BASE)/build/rules/global
+CXXFLAGS += -std=c++11
 objects = Library
 
 target         = Library
