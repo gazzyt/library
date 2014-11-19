@@ -2,6 +2,7 @@
 #include "Poco/Net/HTTPClientSession.h"
 #include "Poco/Net/HTTPRequest.h"
 #include "Poco/Net/HTTPResponse.h"
+#include "Poco/Net/HTTPCookie.h"
 #include "Poco/Util/Application.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/Option.h"
@@ -13,6 +14,7 @@ using Poco::Net::HTTPClientSession;
 using Poco::Net::HTTPRequest;
 using Poco::Net::HTTPResponse;
 using Poco::Net::HTTPMessage;
+using Poco::Net::HTTPCookie;
 using Poco::Util::Application;
 using Poco::Util::OptionSet;
 using Poco::Util::Option;
@@ -72,8 +74,8 @@ protected:
 
 	void getPage()
 	{
-		HTTPClientSession session("www.microsoft.com");
-		HTTPRequest request(HTTPRequest::HTTP_GET, "/", HTTPMessage::HTTP_1_1);
+		HTTPClientSession session("www.google.co.uk");
+		HTTPRequest request(HTTPRequest::HTTP_GET, "/?gfe_rd=cr&amp;ei=XvtsVM3dBMjH8gfox4GgDw", HTTPMessage::HTTP_1_1);
 		HTTPResponse response;
 
 		session.sendRequest(request);
@@ -83,6 +85,13 @@ protected:
 
 		poco_information_f1(logger(), "Status %d", statusCode);
 
+		std::vector<HTTPCookie> cookies;
+		response.getCookies(cookies);
+		for each (HTTPCookie cookie in cookies)
+		{
+			poco_information_f1(logger(), "Cookie %s", cookie.toString());
+		}
+
 		StreamCopier::copyStream(rs, std::cout);
 	}
 
@@ -91,8 +100,7 @@ protected:
 		logger().information("Library app start");
 
 		if (_helpRequested)
-		{
-			displayHelp();
+		{			displayHelp();
 		}
 		else
 		{
