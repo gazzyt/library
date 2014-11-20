@@ -1,8 +1,13 @@
 #include "Poco/StreamCopier.h"
+#include "Poco/SharedPtr.h"
 #include "Poco/Net/HTTPClientSession.h"
+#include "Poco/Net/HTTPSClientSession.h"
 #include "Poco/Net/HTTPRequest.h"
 #include "Poco/Net/HTTPResponse.h"
 #include "Poco/Net/HTTPCookie.h"
+#include "Poco/Net/HTMLForm.h"
+#include "Poco/Net/SSLManager.h"
+#include "Poco/Net/ConsoleCertificateHandler.h"
 #include "Poco/Util/Application.h"
 #include "Poco/Util/OptionSet.h"
 #include "Poco/Util/Option.h"
@@ -10,15 +15,37 @@
 #include <iostream>
 
 using Poco::StreamCopier;
+using Poco::SharedPtr;
 using Poco::Net::HTTPClientSession;
+using Poco::Net::HTTPSClientSession;
 using Poco::Net::HTTPRequest;
 using Poco::Net::HTTPResponse;
 using Poco::Net::HTTPMessage;
 using Poco::Net::HTTPCookie;
+using Poco::Net::HTMLForm;
+using Poco::Net::SSLManager;
+using Poco::Net::Context;
+using Poco::Net::ConsoleCertificateHandler;
+using Poco::Net::InvalidCertificateHandler;
 using Poco::Util::Application;
 using Poco::Util::OptionSet;
 using Poco::Util::Option;
 using Poco::Util::HelpFormatter;
+
+class SSLInitializer
+{
+public:
+	SSLInitializer()
+	{
+		Poco::Net::initializeSSL();
+	}
+
+	~SSLInitializer()
+	{
+		Poco::Net::uninitializeSSL();
+	}
+};
+
 
 class Library : public Poco::Util::Application
 {
@@ -95,8 +122,37 @@ protected:
 		StreamCopier::copyStream(rs, std::cout);
 	}
 
+	void getLoans()
+	{
+		HTTPSClientSession session("capitadiscovery.co.uk");
+		HTTPRequest request(HTTPRequest::HTTP_GET, "/royalgreenwich/login?message=borrowerservices_notloggedin&referer=https%3A%2F%2Fcapitadiscovery.co.uk%2Froyalgreenwich%2Faccount", HTTPMessage::HTTP_1_1);
+		HTTPResponse response;
+		HTMLForm loginForm;
+		loginForm.add("barcode", "28028005913354");
+		loginForm.add("pin", "3347");
+
+		std::ostream& ostr = session.sendRequest(request);
+		std::istream& rs = session.receiveResponse(response);
+
+		int statusCode = response.getStatus();
+
+		poco_information_f1(logger(), "Status %d", statusCode);
+
+		std::vector<HTTPCookie> cookies;
+		response.getCookies(cookies);
+		for (HTTPCookie cookie : cookies)
+		{
+			poco_information_f1(logger(), "Cookie %s", cookie.toString());
+		}
+
+	}
+
 	int main(const std::vector<std::string>& args)
 	{
+		SSLInitializer sslInit;
+		SharedPtr<InvalidCertificateHandler> ptrCert = new ConsoleCertificateHandler(false);
+		Context::Ptr ptrContext = new Context(Context::CLIENT_USE, "", "", "rootcert.pem", Context::VERIFY_RELAXED, 9);
+		SSLManager::instance().initializeClient(0, ptrCert, ptrContext);
 		logger().information("Library app start");
 
 		if (_helpRequested)
@@ -104,7 +160,7 @@ protected:
 		}
 		else
 		{
-			getPage();
+			getLoans();
 		}
 
 		return Application::EXIT_OK;
