@@ -127,7 +127,7 @@ protected:
 	void getLoans()
 	{
 		HTTPSClientSession session("capitadiscovery.co.uk");
-		session.setProxy("localhost", 8888);
+		//session.setProxy("localhost", 8888);
 
 		NameValueCollection cookies;
 
