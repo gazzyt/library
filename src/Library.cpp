@@ -132,7 +132,7 @@ protected:
 		NameValueCollection cookies;
 
 		fetchLoginPage(session, cookies);
-		fetchLoginPage(session, cookies);
+		submitLoginPage(session, cookies);
 
 	}
 
@@ -166,8 +166,42 @@ protected:
 				cookies.add(cookie.getName(), cookie.getValue());
 			}
 		}
-
 	}
+
+	void submitLoginPage(HTTPSClientSession& clientSession, NameValueCollection& cookies)
+	{
+		HTTPRequest request(HTTPRequest::HTTP_POST, "/royalgreenwich/sessions", HTTPMessage::HTTP_1_1);
+		request.setCookies(cookies);
+		HTTPResponse response;
+		HTMLForm loginForm;
+		loginForm.add("barcode", "28028005913354");
+		loginForm.add("pin", "3347");
+		loginForm.prepareSubmit(request);
+
+		std::ostream& ostr = clientSession.sendRequest(request);
+		loginForm.write(ostr);
+		std::istream& rs = clientSession.receiveResponse(response);
+
+		int statusCode = response.getStatus();
+
+		poco_information_f1(logger(), "Status %d", statusCode);
+
+		std::vector<HTTPCookie> newCookies;
+		response.getCookies(newCookies);
+		for (HTTPCookie cookie : newCookies)
+		{
+			poco_information_f1(logger(), "Cookie %s", cookie.toString());
+			if (cookies.has(cookie.getName()))
+			{
+				cookies.set(cookie.getName(), cookie.getValue());
+			}
+			else
+			{
+				cookies.add(cookie.getName(), cookie.getValue());
+			}
+		}
+	}
+
 
 	int main(const std::vector<std::string>& args)
 	{
