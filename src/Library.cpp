@@ -133,7 +133,7 @@ protected:
 
 		fetchLoginPage(session, cookies);
 		submitLoginPage(session, cookies);
-
+		fetchAccountPage(session, cookies);
 	}
 
 	void fetchLoginPage(HTTPSClientSession& clientSession, NameValueCollection& cookies)
@@ -141,9 +141,6 @@ protected:
 		HTTPRequest request(HTTPRequest::HTTP_GET, "/royalgreenwich/login?message=borrowerservices_notloggedin&referer=https%3A%2F%2Fcapitadiscovery.co.uk%2Froyalgreenwich%2Faccount", HTTPMessage::HTTP_1_1);
 		request.setCookies(cookies);
 		HTTPResponse response;
-		HTMLForm loginForm;
-		loginForm.add("barcode", "28028005913354");
-		loginForm.add("pin", "3347");
 
 		std::ostream& ostr = clientSession.sendRequest(request);
 		std::istream& rs = clientSession.receiveResponse(response);
@@ -202,6 +199,34 @@ protected:
 		}
 	}
 
+	void fetchAccountPage(HTTPSClientSession& clientSession, NameValueCollection& cookies)
+	{
+		HTTPRequest request(HTTPRequest::HTTP_GET, "/royalgreenwich/account", HTTPMessage::HTTP_1_1);
+		request.setCookies(cookies);
+		HTTPResponse response;
+
+		std::ostream& ostr = clientSession.sendRequest(request);
+		std::istream& rs = clientSession.receiveResponse(response);
+
+		int statusCode = response.getStatus();
+
+		poco_information_f1(logger(), "Status %d", statusCode);
+
+		std::vector<HTTPCookie> newCookies;
+		response.getCookies(newCookies);
+		for (HTTPCookie cookie : newCookies)
+		{
+			poco_information_f1(logger(), "Cookie %s", cookie.toString());
+			if (cookies.has(cookie.getName()))
+			{
+				cookies.set(cookie.getName(), cookie.getValue());
+			}
+			else
+			{
+				cookies.add(cookie.getName(), cookie.getValue());
+			}
+		}
+	}
 
 	int main(const std::vector<std::string>& args)
 	{
