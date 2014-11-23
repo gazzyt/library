@@ -226,6 +226,7 @@ protected:
 				cookies.add(cookie.getName(), cookie.getValue());
 			}
 		}
+		StreamCopier::copyStream(rs, std::cout);
 	}
 
 	int main(const std::vector<std::string>& args)
