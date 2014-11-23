@@ -13,6 +13,6 @@ objects = Library
 
 target         = Library
 target_version = 1
-target_libs    = PocoUtil PocoNet PocoXML PocoFoundation
+target_libs    = PocoUtil PocoNet PocoXML PocoFoundation PocoNetSSL PocoCrypto
 
 include $(POCO_BASE)/build/rules/exec
