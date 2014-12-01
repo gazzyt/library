@@ -1,6 +1,6 @@
 #include "Poco/Exception.h"
 #include "Poco/RegularExpression.h"
-
+#include <iostream>
 #include "LoanExtractor.h"
 
 using Poco::RegularExpression;

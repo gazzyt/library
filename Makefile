@@ -9,7 +9,7 @@
 
 include $(POCO_BASE)/build/rules/global
 CXXFLAGS += -std=c++11
-objects = Library
+objects = Library LibraryLoan LoanExtractor
 
 target         = Library
 target_version = 1
