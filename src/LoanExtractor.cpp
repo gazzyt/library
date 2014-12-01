@@ -52,10 +52,10 @@ LibraryLoan* LoanExtractor::ExtractLoan(std::string tableRow)
 
 	regex.split(tableRow, strings);
 
-	for (int i = 1; i < strings.size(); i++)
-	{
-		std::cout << strings[i] << std::endl;
-	}
+	//for (int i = 1; i < strings.size(); i++)
+	//{
+	//	std::cout << strings[i] << std::endl;
+	//}
 
 	if (strings.size() >= 4)
 	{

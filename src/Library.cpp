@@ -219,6 +219,11 @@ protected:
 
 		std::vector<LibraryLoan> loans = LoanExtractor::ExtractLoans(html);
 
+		for (LibraryLoan loan : loans)
+		{
+			std::cout << loan.getTitle() << " by " << loan.getAuthor() << std::endl;
+		}
+
 		std::vector<HTTPCookie> newCookies;
 		response.getCookies(newCookies);
 		for (HTTPCookie cookie : newCookies)
