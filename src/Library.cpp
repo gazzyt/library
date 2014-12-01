@@ -221,7 +221,7 @@ protected:
 
 		for (LibraryLoan loan : loans)
 		{
-			std::cout << loan.getTitle() << " by " << loan.getAuthor() << std::endl;
+			std::cout << loan.getTitle() << " by " << loan.getAuthor() << " due " << loan.getDueDate() << std::endl;
 		}
 
 		std::vector<HTTPCookie> newCookies;

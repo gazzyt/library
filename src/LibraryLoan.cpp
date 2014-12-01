@@ -1,7 +1,7 @@
 #include "LibraryLoan.h"
 
-LibraryLoan::LibraryLoan(const std::string& title, const std::string& author)
-	: _title(title), _author(author)
+LibraryLoan::LibraryLoan(const std::string& title, const std::string& author, const std::string& dueDate)
+	: _title(title), _author(author), _dueDate(dueDate)
 {}
 
 const std::string& LibraryLoan::getTitle()
@@ -12,4 +12,9 @@ const std::string& LibraryLoan::getTitle()
 const std::string& LibraryLoan::getAuthor()
 {
 	return _author;
+}
+
+const std::string& LibraryLoan::getDueDate()
+{
+	return _dueDate;
 }

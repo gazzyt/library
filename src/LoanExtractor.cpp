@@ -59,7 +59,7 @@ LibraryLoan* LoanExtractor::ExtractLoan(std::string tableRow)
 
 	if (strings.size() >= 4)
 	{
-		pLoan = new LibraryLoan(strings[1], strings[2]);
+		pLoan = new LibraryLoan(strings[1], strings[2], strings[3]);
 	}
 
 	return pLoan;
