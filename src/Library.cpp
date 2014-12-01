@@ -15,6 +15,9 @@
 #include "Poco/Util/HelpFormatter.h"
 #include <iostream>
 
+#include "LibraryLoan.h"
+#include "LoanExtractor.h"
+
 using Poco::StreamCopier;
 using Poco::SharedPtr;
 using Poco::Net::HTTPClientSession;
@@ -212,6 +215,10 @@ protected:
 
 		poco_information_f1(logger(), "Status %d", statusCode);
 
+		std::string html((std::istreambuf_iterator<char>(rs)), std::istreambuf_iterator<char>());
+
+		std::vector<LibraryLoan> loans = LoanExtractor::ExtractLoans(html);
+
 		std::vector<HTTPCookie> newCookies;
 		response.getCookies(newCookies);
 		for (HTTPCookie cookie : newCookies)
@@ -226,7 +233,7 @@ protected:
 				cookies.add(cookie.getName(), cookie.getValue());
 			}
 		}
-		StreamCopier::copyStream(rs, std::cout);
+		//StreamCopier::copyStream(rs, std::cout);
 	}
 
 	int main(const std::vector<std::string>& args)

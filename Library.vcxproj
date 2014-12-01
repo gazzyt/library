@@ -157,9 +157,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Library.cpp" />
+    <ClCompile Include="src\LibraryLoan.cpp" />
+    <ClCompile Include="src\LoanExtractor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\LibraryLoan.h" />
+    <ClInclude Include="src\LoanExtractor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
