@@ -19,10 +19,33 @@
     <Filter Include="_Driver\Source Files">
       <UniqueIdentifier>{12c4d348-bda4-42e4-9187-3e78fe3d02ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="_Suite">
+      <UniqueIdentifier>{fc914a3d-558e-407f-b4aa-3eedec477692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Suite\Header Files">
+      <UniqueIdentifier>{04e524a1-ed4d-459a-86aa-9e85b7c01d47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Suite\Source Files">
+      <UniqueIdentifier>{ed4c13e4-94dc-4c9c-8de8-0363a6893605}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Driver.cpp">
       <Filter>_Driver\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\LibraryTestSuite.cpp">
+      <Filter>_Suite\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DummyTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\LibraryTestSuite.h">
+      <Filter>_Suite\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DummyTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

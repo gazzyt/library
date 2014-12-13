@@ -1,9 +1,7 @@
 //
-// Driver.cpp
+// FoundationTestSuite.cpp
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/Driver.cpp#1 $
-//
-// Console-based test driver.
+// $Id: //poco/1.4/Foundation/testsuite/src/FoundationTestSuite.cpp#3 $
 //
 // Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -32,8 +30,15 @@
 //
 
 
-#include "CppUnit/TestRunner.h"
 #include "LibraryTestSuite.h"
+#include "DummyTest.h"
 
 
-CppUnitMain(LibraryTestSuite)
+CppUnit::Test* LibraryTestSuite::suite()
+{
+	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("LibraryTestSuite");
+
+	pSuite->addTest(DummyTest::suite());
+
+	return pSuite;
+}

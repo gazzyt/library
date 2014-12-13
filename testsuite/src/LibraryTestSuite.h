@@ -1,9 +1,9 @@
 //
-// Driver.cpp
+// FoundationTestSuite.h
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/Driver.cpp#1 $
+// $Id: //poco/1.4/Foundation/testsuite/src/FoundationTestSuite.h#1 $
 //
-// Console-based test driver.
+// Definition of the FoundationTestSuite class.
 //
 // Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -32,8 +32,18 @@
 //
 
 
-#include "CppUnit/TestRunner.h"
-#include "LibraryTestSuite.h"
+#ifndef LibraryTestSuite_INCLUDED
+#define LibraryTestSuite_INCLUDED
 
 
-CppUnitMain(LibraryTestSuite)
+#include "CppUnit/TestSuite.h"
+
+
+class LibraryTestSuite
+{
+public:
+	static CppUnit::Test* suite();
+};
+
+
+#endif // LibraryTestSuite_INCLUDED

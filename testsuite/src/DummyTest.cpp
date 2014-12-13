@@ -1,9 +1,7 @@
 //
-// Driver.cpp
+// TextEncodingTest.cpp
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/Driver.cpp#1 $
-//
-// Console-based test driver.
+// $Id: //poco/1.4/Foundation/testsuite/src/TextEncodingTest.cpp#1 $
 //
 // Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -32,8 +30,42 @@
 //
 
 
-#include "CppUnit/TestRunner.h"
-#include "LibraryTestSuite.h"
+#include "DummyTest.h"
+#include "CppUnit/TestCaller.h"
+#include "CppUnit/TestSuite.h"
 
 
-CppUnitMain(LibraryTestSuite)
+DummyTest::DummyTest(const std::string& name): CppUnit::TestCase(name)
+{
+}
+
+
+DummyTest::~DummyTest()
+{
+}
+
+
+void DummyTest::testNothing()
+{
+	assert (1 == 1);
+}
+
+
+void DummyTest::setUp()
+{
+}
+
+
+void DummyTest::tearDown()
+{
+}
+
+
+CppUnit::Test* DummyTest::suite()
+{
+	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("DummyTest");
+
+	CppUnit_addTest(pSuite, DummyTest, testNothing);
+
+	return pSuite;
+}

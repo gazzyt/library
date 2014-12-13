@@ -1,11 +1,11 @@
 //
-// Driver.cpp
+// TextEncodingTest.h
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/Driver.cpp#1 $
+// $Id: //poco/1.4/Foundation/testsuite/src/TextEncodingTest.h#1 $
 //
-// Console-based test driver.
+// Definition of the TextEncodingTest class.
 //
-// Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
+// Copyright (c) 2007, Applied Informatics Software Engineering GmbH.
 // and Contributors.
 //
 // Permission is hereby granted, free of charge, to any person or organization
@@ -32,8 +32,28 @@
 //
 
 
-#include "CppUnit/TestRunner.h"
-#include "LibraryTestSuite.h"
+#ifndef DummyTest_INCLUDED
+#define DummyTest_INCLUDED
 
 
-CppUnitMain(LibraryTestSuite)
+#include "CppUnit/TestCase.h"
+
+
+class DummyTest: public CppUnit::TestCase
+{
+public:
+	DummyTest(const std::string& name);
+	~DummyTest();
+
+	void testNothing();
+
+	void setUp();
+	void tearDown();
+
+	static CppUnit::Test* suite();
+
+private:
+};
+
+
+#endif // DummyTest_INCLUDED
