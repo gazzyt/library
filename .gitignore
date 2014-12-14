@@ -17,6 +17,7 @@ build/
 [Bb]in/
 [Oo]bj/
 .dep/
+lib64/
 
 Library/release_static_mt/
 
