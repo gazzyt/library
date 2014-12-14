@@ -86,6 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LibraryDateParser.cpp" />
     <ClCompile Include="src\Library.cpp" />
     <ClCompile Include="src\LibraryLoan.cpp" />
     <ClCompile Include="src\LoanExtractor.cpp" />
@@ -94,6 +95,7 @@
     <None Include="Library.properties" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LibraryDateParser.h" />
     <ClInclude Include="src\LibraryLoan.h" />
     <ClInclude Include="src\LoanExtractor.h" />
   </ItemGroup>
