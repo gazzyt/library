@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library", "Library.vcxproj", "{5AAD2FE3-A462-4139-BAD5-FCD547CEACBC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestSuite", "testsuite\TestSuite.vcxproj", "{EB41B463-4440-40DD-ADC6-1467CF06C587}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibLibrary", "LibLibrary\LibLibrary.vcxproj", "{D633632B-49B3-4759-9978-28F4FBB5F846}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestSuite", "LibLibrary\testsuite\TestSuite.vcxproj", "{EB41B463-4440-40DD-ADC6-1467CF06C587}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{5AAD2FE3-A462-4139-BAD5-FCD547CEACBC}.debug_static_mt|x64.Build.0 = debug_static_mt|x64
 		{5AAD2FE3-A462-4139-BAD5-FCD547CEACBC}.release_static_mt|x64.ActiveCfg = release_static_mt|x64
 		{5AAD2FE3-A462-4139-BAD5-FCD547CEACBC}.release_static_mt|x64.Build.0 = release_static_mt|x64
+		{D633632B-49B3-4759-9978-28F4FBB5F846}.debug_static_mt|x64.ActiveCfg = debug_static_mt|x64
+		{D633632B-49B3-4759-9978-28F4FBB5F846}.debug_static_mt|x64.Build.0 = debug_static_mt|x64
+		{D633632B-49B3-4759-9978-28F4FBB5F846}.release_static_mt|x64.ActiveCfg = release_static_mt|x64
+		{D633632B-49B3-4759-9978-28F4FBB5F846}.release_static_mt|x64.Build.0 = release_static_mt|x64
 		{EB41B463-4440-40DD-ADC6-1467CF06C587}.debug_static_mt|x64.ActiveCfg = debug_static_mt|x64
 		{EB41B463-4440-40DD-ADC6-1467CF06C587}.debug_static_mt|x64.Build.0 = debug_static_mt|x64
 		{EB41B463-4440-40DD-ADC6-1467CF06C587}.release_static_mt|x64.ActiveCfg = release_static_mt|x64

@@ -1,7 +1,7 @@
 //
-// FoundationTestSuite.cpp
+// TextEncodingTest.cpp
 //
-// $Id: //poco/1.4/Foundation/testsuite/src/FoundationTestSuite.cpp#3 $
+// $Id: //poco/1.4/Foundation/testsuite/src/TextEncodingTest.cpp#1 $
 //
 // Copyright (c) 2004-2006, Applied Informatics Software Engineering GmbH.
 // and Contributors.
@@ -30,15 +30,43 @@
 //
 
 
-#include "LibraryTestSuite.h"
-#include "DummyTest.h"
+#include "DueDateParserTest.h"
+#include "CppUnit/TestCaller.h"
+#include "CppUnit/TestSuite.h"
+#include "LibraryDateParser.h"
 
-
-CppUnit::Test* LibraryTestSuite::suite()
+DueDateParserTest::DueDateParserTest(const std::string& name): CppUnit::TestCase(name)
 {
-	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("LibraryTestSuite");
+}
 
-	pSuite->addTest(DummyTest::suite());
+
+DueDateParserTest::~DueDateParserTest()
+{
+}
+
+
+void DueDateParserTest::testParseDueDate()
+{
+	DateTime dt = LibraryDateParser::ParseDueDate("27th December");
+	assert (1 == 1);
+}
+
+
+void DueDateParserTest::setUp()
+{
+}
+
+
+void DueDateParserTest::tearDown()
+{
+}
+
+
+CppUnit::Test* DueDateParserTest::suite()
+{
+	CppUnit::TestSuite* pSuite = new CppUnit::TestSuite("DueDateParserTest");
+
+	CppUnit_addTest(pSuite, DueDateParserTest, testParseDueDate);
 
 	return pSuite;
 }

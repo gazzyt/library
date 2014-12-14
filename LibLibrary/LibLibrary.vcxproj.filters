@@ -13,31 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Configuration Files">
-      <UniqueIdentifier>{eaab46aa-22bf-4753-a880-100e63063756}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Library.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\LibraryLoan.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\LoanExtractor.cpp">
+    <ClCompile Include="src\LibraryDateParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Library.properties">
-      <Filter>Configuration Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\LibraryLoan.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\LoanExtractor.h">
+    <ClInclude Include="include\LibraryDateParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -39,12 +39,18 @@
     <ClCompile Include="src\DummyTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\DueDateParserTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\LibraryTestSuite.h">
       <Filter>_Suite\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\DummyTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DueDateParserTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

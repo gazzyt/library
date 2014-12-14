@@ -51,15 +51,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\poco-1.4.7p1-all\Crypto\include;C:\dev\cpp\poco-1.4.7p1-all\CppUnit\include;..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\poco-1.4.7p1-all\util\include;..\poco-1.4.7p1-all\foundation\include;..\poco-1.4.7p1-all\net\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\dev\cpp\library\LibLibrary\include;c:\openssl-win64\include;..\poco-1.4.7p1-all\Crypto\include;C:\dev\cpp\poco-1.4.7p1-all\CppUnit\include;..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\poco-1.4.7p1-all\util\include;C:\dev\cpp\poco-1.4.7p1-all\Foundation\include;..\poco-1.4.7p1-all\net\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>POCO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib64;C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>CppUnitmtd.lib;libeay32mtd.lib;ssleay32mtd.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>LibLibrarymdd.lib;CppUnitmdd.lib;libeay32mtd.lib;ssleay32mtd.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static_mt|x64'">
@@ -70,23 +70,25 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>POCO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\poco-1.4.7p1-all\Crypto\include;C:\dev\cpp\poco-1.4.7p1-all\CppUnit\include;..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\poco-1.4.7p1-all\util\include;..\poco-1.4.7p1-all\foundation\include;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\dev\cpp\library\LibLibrary\include;c:\openssl-win64\include;..\poco-1.4.7p1-all\Crypto\include;C:\dev\cpp\poco-1.4.7p1-all\CppUnit\include;..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\poco-1.4.7p1-all\util\include;C:\dev\cpp\poco-1.4.7p1-all\Foundation\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CppUnitmt.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib64;C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LibLibrarymd.lib;CppUnitmd.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Driver.cpp" />
+    <ClCompile Include="src\DueDateParserTest.cpp" />
     <ClCompile Include="src\DummyTest.cpp" />
     <ClCompile Include="src\LibraryTestSuite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DueDateParserTest.h" />
     <ClInclude Include="src\DummyTest.h" />
     <ClInclude Include="src\LibraryTestSuite.h" />
   </ItemGroup>
