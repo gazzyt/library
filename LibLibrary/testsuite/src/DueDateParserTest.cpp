@@ -48,7 +48,7 @@ DueDateParserTest::~DueDateParserTest()
 void DueDateParserTest::testParseDueDate()
 {
 	DateTime dt = LibraryDateParser::ParseDueDate("27th December");
-	assert (1 == 1);
+	assert(dt.day() == 27);
 }
 
 
