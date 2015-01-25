@@ -33,7 +33,7 @@
 #include "DueDateParserTest.h"
 #include "CppUnit/TestCaller.h"
 #include "CppUnit/TestSuite.h"
-#include "LibraryDateParser.h"
+#include "../../include/LibraryDateParser.h"
 
 DueDateParserTest::DueDateParserTest(const std::string& name): CppUnit::TestCase(name)
 {
