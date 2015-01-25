@@ -1,6 +1,6 @@
-#include "Poco\DateTimeParser.h"
-#include "Poco\Exception.h"
-#include "Poco\StringTokenizer.h"
+#include "Poco/DateTimeParser.h"
+#include "Poco/Exception.h"
+#include "Poco/StringTokenizer.h"
 #include "LibraryDateParser.h"
 
 using Poco::DateTimeParser;
@@ -26,13 +26,15 @@ DateTime LibraryDateParser::ParseDueDate(std::string dateString)
 	}
 
 	std::string dayString = tokeniser[0];
-	std::string monthString = tokeniser[1];
+	const std::string monthString = tokeniser[1];
 
 	DateTime dt;
 	int tzd;
+	std::string::const_iterator begin = monthString.begin();
+	std::string::const_iterator end = monthString.end();
 	
 	DateTimeParser::parse("%f", dayString, dt, tzd);
-	int month = DateTimeParser::parseMonth(monthString.begin(), monthString.end());
+	int month = DateTimeParser::parseMonth(begin, end);
 
 	
 
