@@ -6,13 +6,9 @@
 # Makefile for Poco HTTPTimeServer
 #
 
-
-include $(POCO_BASE)/build/rules/global
-CXXFLAGS += -std=c++11
-objects = Library LibraryLoan LoanExtractor
-
-target         = Library
-target_version = 1
-target_libs    = PocoUtil PocoNet PocoXML PocoFoundation PocoNetSSL PocoCrypto
-
-include $(POCO_BASE)/build/rules/exec
+SUBDIRS = Library LibLibrary
+.PHONY: subdirs $(SUBDIRS)
+subdirs: $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@
+Library: LibLibrary
