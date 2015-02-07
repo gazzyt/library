@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\poco-1.4.7p1-all\Crypto\include;..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\poco-1.4.7p1-all\util\include;..\poco-1.4.7p1-all\foundation\include;..\poco-1.4.7p1-all\net\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\..\poco-1.4.7p1-all\Crypto\include;..\..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\..\poco-1.4.7p1-all\util\include;..\..\poco-1.4.7p1-all\foundation\include;..\..\poco-1.4.7p1-all\net\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>POCO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
