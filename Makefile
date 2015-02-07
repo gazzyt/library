@@ -7,8 +7,14 @@
 #
 
 SUBDIRS = Library LibLibrary
-.PHONY: subdirs $(SUBDIRS)
-subdirs: $(SUBDIRS)
-$(SUBDIRS):
-	$(MAKE) -C $@
-Library: LibLibrary
+
+all:
+	@for i in $(SUBDIRS); do \
+	$(MAKE) -C $$i; done
+
+clean:
+	@for i in $(SUBDIRS); do \
+	$(MAKE) -C $$i clean; done
+
+build-Library: build-LibLibrary
+
