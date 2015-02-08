@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static_mt|x64'">
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static_mt|x64'">
     <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
