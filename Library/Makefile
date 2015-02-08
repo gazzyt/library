@@ -8,11 +8,11 @@
 
 
 include $(POCO_BASE)/build/rules/global
-CXXFLAGS += -std=c++11
+CXXFLAGS += -std=c++11 -I../LibLibrary/include
 objects = Library LibraryLoan LoanExtractor
 
 target         = Library
 target_version = 1
-target_libs    = PocoUtil PocoNet PocoXML PocoFoundation PocoNetSSL PocoCrypto
+target_libs    = PocoUtil PocoNet PocoXML PocoFoundation PocoNetSSL PocoCrypto LibLibrary
 
 include $(POCO_BASE)/build/rules/exec

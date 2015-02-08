@@ -6,7 +6,7 @@
 # Makefile for Poco HTTPTimeServer
 #
 
-SUBDIRS = Library LibLibrary
+SUBDIRS = LibLibrary Library
 
 all:
 	@for i in $(SUBDIRS); do \
@@ -16,5 +16,4 @@ clean:
 	@for i in $(SUBDIRS); do \
 	$(MAKE) -C $$i clean; done
 
-build-Library: build-LibLibrary
 
