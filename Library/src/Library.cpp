@@ -1,3 +1,6 @@
+#include "Poco/DateTime.h"
+#include "Poco/DateTimeFormat.h"
+#include "Poco/DateTimeFormatter.h"
 #include "Poco/StreamCopier.h"
 #include "Poco/SharedPtr.h"
 #include "Poco/Net/HTTPClientSession.h"
@@ -221,7 +224,11 @@ protected:
 
 		for (LibraryLoan loan : loans)
 		{
-			std::cout << loan.getTitle() << " by " << loan.getAuthor() << " due " << loan.getDueDate() << std::endl;
+			std::cout << loan.getTitle() 
+				<< " by " << loan.getAuthor() 
+				<< " due " << loan.getDueDate() 
+				<< Poco::DateTimeFormatter::format(loan.getDueDate2(), Poco::DateTimeFormat::ISO8601_FORMAT)
+				<< std::endl;
 		}
 
 		std::vector<HTTPCookie> newCookies;

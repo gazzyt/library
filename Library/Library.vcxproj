@@ -51,7 +51,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\..\poco-1.4.7p1-all\Crypto\include;..\..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\..\poco-1.4.7p1-all\util\include;..\..\poco-1.4.7p1-all\foundation\include;..\..\poco-1.4.7p1-all\net\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>c:\openssl-win64\include;..\..\poco-1.4.7p1-all\Crypto\include;..\..\poco-1.4.7p1-all\NetSSL_OpenSSL\include;.\include;..\..\poco-1.4.7p1-all\util\include;..\..\poco-1.4.7p1-all\foundation\include;..\..\poco-1.4.7p1-all\net\include;..\LibLibrary\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>POCO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -61,9 +61,9 @@
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\poco-1.4.7p1-all\lib</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\dev\cpp\poco-1.4.7p1-all\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\dev\cpp\poco-1.4.7p1-all\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalLibraryDirectories>C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\dev\cpp\poco-1.4.7p1-all\lib64;c:\OpenSSL-Win64\lib\VC;$(SolutionDir)\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>libeay32mtd.lib;ssleay32mtd.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libeay32mtd.lib;ssleay32mtd.lib;Crypt32.lib;LibLibrarymdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static_mt|x64'">

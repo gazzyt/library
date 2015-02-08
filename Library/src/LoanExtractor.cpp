@@ -2,6 +2,7 @@
 #include "Poco/RegularExpression.h"
 #include <iostream>
 #include "LoanExtractor.h"
+#include "LibraryDateParser.h"
 
 using Poco::RegularExpression;
 using Poco::RegularExpressionException;
@@ -59,7 +60,9 @@ LibraryLoan* LoanExtractor::ExtractLoan(std::string tableRow)
 
 	if (strings.size() >= 4)
 	{
-		pLoan = new LibraryLoan(strings[1], strings[2], strings[3]);
+		LibraryDateParser dateParser;
+		DateTime dueDate = dateParser.ParseDueDate(strings[3]);
+		pLoan = new LibraryLoan(strings[1], strings[2], strings[3], dueDate);
 	}
 
 	return pLoan;
